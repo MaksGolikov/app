@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="layout :: header"></div>
+<div th:replace="layout :: menu"></div>
+
+<body>
+<h2>Список студентів</h2>
+
+
+<table border="1">
+    <tr>
+        <th>Ім'я</th>
+        <th>Вік</th>
+        <th>Email</th>
+    </tr>
+
+    <tr th:each="student : ${students}">
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.email}"></td>
+    </tr>
+</table>
+</body>
+
+<div th:replace="layout :: footer"></div>
+
+</html>

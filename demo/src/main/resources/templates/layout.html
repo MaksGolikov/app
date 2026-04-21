@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>App</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Student App</h1>
+</div>
+
+<div th:fragment="menu">
+    <a href="/api/v2/students">Список</a> |
+    <a href="/api/v2/students/add">Додати</a>
+    <form action="/api/v2/students/search" method="get">
+        <input type="text" name="name" placeholder="Пошук по імені">
+        <button type="submit">Знайти</button>
+    </form>
+</div>
+
+<div th:fragment="footer">
+    <hr>
+    <p>© 2026</p>
+</div>
+
+</body>
+</html>

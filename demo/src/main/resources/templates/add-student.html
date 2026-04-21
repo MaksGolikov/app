@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="layout :: header"></div>
+<div th:replace="layout :: menu"></div>
+
+<body>
+
+<h2>Додати студента</h2>
+
+<form th:action="@{/api/v2/students/add}" th:object="${student}" method="post">
+
+    Ім'я: <input type="text" th:field="*{name}" />
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+    Вік: <input type="number" th:field="*{age}" />
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+
+    Email: <input type="email" th:field="*{email}" />
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <button type="submit">Зберегти</button>
+
+</form>
+
+<br>
+<a href="/api/v2/students">Назад до списку</a>
+</body>
+
+<div th:replace="layout :: footer"></div>
+
+</html>
